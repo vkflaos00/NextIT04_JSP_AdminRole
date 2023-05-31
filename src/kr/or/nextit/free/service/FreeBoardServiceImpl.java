@@ -33,14 +33,7 @@ public class FreeBoardServiceImpl implements IFreeBoardService{
 
 	@Override
 	public List<FreeBoardVO> getBoardList(FreeBoardSearchVO searchVO) throws BizNotEffectedException {
-		// TODO Auto-generated method stub
-		
-		String nextit = null;
-		nextit.toString();
-		
-		
-		
-		//int totalRowCount = freeBoardDao.getTotalRowCount();
+
 		int totalRowCount = freeBoardDao.getTotalRowCount(searchVO);
 		searchVO.setTotalRowCount(totalRowCount);
 		searchVO.pageSetting();
@@ -48,10 +41,6 @@ public class FreeBoardServiceImpl implements IFreeBoardService{
 		
 		
 		List<FreeBoardVO> freeBoardList =  freeBoardDao.getBoardList(searchVO);
-		
-		if(freeBoardList == null) {
-			throw new BizNotEffectedException();
-		}
 		
 		return freeBoardList;
 	}
